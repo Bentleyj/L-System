@@ -6,7 +6,7 @@ void ofApp::setup(){
     
     turtle.setPos(ofGetWidth()/2, ofGetHeight()/2);
     turtle.setDeltaA(22.7);
-//    ofSetBackgroundAuto(false);
+    
     ofBackground(0);
     ofSetLineWidth(2);
     drawn = false;
@@ -20,6 +20,8 @@ void ofApp::setup(){
     gui.add(x.set("X", ofGetWidth()/2, 0, ofGetWidth()));
     gui.add(y.set("Y", ofGetHeight()/2, 0, ofGetHeight()));
     gui.add(scale.set("Scale", 1.0, 0.001, 2.0));
+    
+    ofEnableDepthTest();
 }
 
 //--------------------------------------------------------------
@@ -32,14 +34,11 @@ string ofApp::apply(string input){
                 output<<"X";
                 break;
             case 'X' :
-                output<<"-F[&X][^^X]F//-+X&FF";
+                output<<"-FF[&X][^^X]F[//-+X&FF";
                 break;
             case 'F' :
                 output<<"FF";
                 break;
-//            case 'f' :
-//                output<<"F";
-//                break;
             default:
                 output<<*it;
                 break;
